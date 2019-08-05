@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="note"
+            type="com.darkray.noteskeeper.roomdb.Note" />
+
+        <variable
+            name="callBack"
+            type="com.darkray.noteskeeper.callback.NoteClickCallBack" />
+
+    </data>
+
+    <LinearLayout
+        android:id="@+id/movies_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:minHeight="72dp"
+        android:onClick="@{() -> callBack.noteClicked(note)}"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_xmedium">
+
+        <ImageView
+            android:id="@+id/iv_dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_medium"
+            android:src="@drawable/ic_fiber_manual_record_black_24dp"
+            android:tint="@color/blue_800" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/spacing_medium"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lastEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_ssmall"
+                android:maxLines="1"
+                android:text="@{note.dateOfCreated}"
+                android:textColor="@color/colorGreyLight"
+                android:textSize="13sp" />
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_ssmall"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="2"
+                android:text="@{note.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="@{note.title.length() > 0 ? View.VISIBLE : View.GONE}" />
+
+            <TextView
+                android:id="@+id/note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_xmedium"
+                android:layout_marginBottom="@dimen/spacing_ssmall"
+                android:ellipsize="end"
+                android:inputType="none"
+                android:maxLines="3"
+                android:text="@{note.note}"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

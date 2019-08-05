@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Notes Keeper</string>
+
+    <string name="title">Title</string>
+    <string name="note">Note</string>
+
+    <string name="no_item_found">No Notes Found</string>
+    <string name="image_description">Image</string>
+    <string name="notes">Notes</string>
+</resources>
